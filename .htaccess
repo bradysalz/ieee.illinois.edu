@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# If requesting a specific file directly
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^/about /about.html
+RewriteRule ^/about/ /about.html
+# RewriteRule ^/about/(.*) /about-$1.html
+
+RewriteRule ^/news /news.html
