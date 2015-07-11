@@ -7,31 +7,27 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Note: The "/?" means the trailing slash is optional
 
 # About
-RewriteRule ^about/?$ about.html
-RewriteRule ^about/committees/?$ about-committees.html
-RewriteRule ^about/contact/?$ about-contact.html
-RewriteRule ^about/exec-board/?$ about-exec-board.html
-RewriteRule ^about/TAGs/?$ about-tags.html
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^about/(.+?)/?$ about-$1.html
 
 # Awards
 RewriteRule ^awards/?$ awards.html
 
 # Corporate
 RewriteRule ^corporate/?$ corporate.html
-RewriteRule ^corporate/request/?$ corporate-request.html
+RewriteRule ^corporate/(.+?)/?$ corporate-$1.html
 
 # Internal
 RewriteRule ^internal/?$ internal.html
-RewriteRule ^internal/announce/generate/?$ internal-announce-generate.html
-RewriteRule ^internal/announce/request/?$ internal-announce-request.html
+RewriteRule ^internal/(.+?)/(.+?)/?$ internal-$1-$2.html
+RewriteRule ^internal/(.+?)/?$ internal-$1.html
 
 # Join
 RewriteRule ^join/?$ join.html
 
 # News
 RewriteRule ^news/?$ news.html
-RewriteRule ^news/announce/?$ news-announce.html
-RewriteRule ^news/calendar/?$ news-calendar.html
+RewriteRule ^news/(.+?)/?$ news-$1.html
 
 # POW
 RewriteRule ^pow/?$ pow.html
@@ -48,4 +44,4 @@ RewriteRule ^spark/?$ spark.html
 # RewriteRule ^/.* $1.html
 
 # Error pages
-ErrorDocument 404 /assets/404.html
+# ErrorDocument 404 /assets/404.html
