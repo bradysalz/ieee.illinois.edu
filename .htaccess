@@ -1,11 +1,51 @@
 RewriteEngine On
 
-# If requesting a specific file directly
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{SCRIPT_FILENAME} !-f
+# If requesting assets
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d 
 
-RewriteRule ^/about /about.html
-RewriteRule ^/about/ /about.html
-# RewriteRule ^/about/(.*) /about-$1.html
+# Note: The "/?" means the trailing slash is optional
 
-RewriteRule ^/news /news.html
+# About
+RewriteRule ^about/?$ about.html
+RewriteRule ^about/committees/?$ about-committees.html
+RewriteRule ^about/contact/?$ about-contact.html
+RewriteRule ^about/exec-board/?$ about-exec-board.html
+RewriteRule ^about/TAGs/?$ about-tags.html
+
+# Awards
+RewriteRule ^awards/?$ awards.html
+
+# Corporate
+RewriteRule ^corporate/?$ corporate.html
+RewriteRule ^corporate/request/?$ corporate-request.html
+
+# Internal
+RewriteRule ^internal/?$ internal.html
+RewriteRule ^internal/announce/generate/?$ internal-announce-generate.html
+RewriteRule ^internal/announce/request/?$ internal-announce-request.html
+
+# Join
+RewriteRule ^join/?$ join.html
+
+# News
+RewriteRule ^news/?$ news.html
+RewriteRule ^news/announce/?$ news-announce.html
+RewriteRule ^news/calendar/?$ news-calendar.html
+
+# POW
+RewriteRule ^pow/?$ pow.html
+
+# Projects
+RewriteRule ^projects/?$ projects.html
+
+# Spark
+RewriteRule ^spark/?$ spark.html
+
+# RewriteRule ^about/(.*)?$ about-$1.html
+
+# Generic version
+# RewriteRule ^/.* $1.html
+
+# Error pages
+ErrorDocument 404 /assets/404.html
